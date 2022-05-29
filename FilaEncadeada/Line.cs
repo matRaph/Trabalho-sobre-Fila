@@ -44,9 +44,9 @@ namespace FilaEncadeada
             }
             //Atribui à variável retorno o primeiro valueo da lista
             object ret = this.sentry.next.value;
-            //Exclui o primeiro valueo, ligando a cell sentinela ao próximo valor
+            //Exclui o primeiro value, ligando a cell sentinela ao próximo valor
             this.sentry.next = this.sentry.next.next;
-            //Diminui o tamanho da file
+            //Diminui o tamanho da fila
             this.size--;
             //Retorna retorno
             return ret;
@@ -54,8 +54,12 @@ namespace FilaEncadeada
 
         public object Peek()
         {
-            //Retorna o valueo da célula seguinta à célula sentinela
-            return this.sentry.next;
+            if (IsEmpty())
+            {
+                throw new FilaVaziaException("Fila vazia");
+            }
+            //Retorna o value da célula seguinta à célula sentinela
+            return this.sentry.next.value;
         }
 
         public bool IsEmpty()

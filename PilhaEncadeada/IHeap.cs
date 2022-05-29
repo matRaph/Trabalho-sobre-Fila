@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FilaEncadeada
+namespace PilhaEncadeada
 {
-    public interface ILine
+    public interface IHeap
     {
         public bool IsEmpty();
-        public void Enqueue(object value);
-        public object Dequeue();
-        public object Peek();
+        public object Pop();
+        public void Push(object value);
+        public object Top();
+
     }
 }
